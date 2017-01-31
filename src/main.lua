@@ -97,8 +97,9 @@ _Return values_:
 		local ret_fpaths = {}
 		local obj
 
-		if (paths.filep(path .. "init.lua")) then
-			obj = load_file(path .. "init.lua", params, docs, ret_docs, ret_fpaths)
+		local init_path = path .. "init.lua"
+		if (paths.filep(init_path) and not is_loaded(init_path)) then
+			obj = load_file(init_path, params, docs, ret_docs, ret_fpaths)
 			table.insert(params, 1, obj)
 		end
 
