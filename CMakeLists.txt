@@ -21,7 +21,6 @@ foreach (TMP_PATH ${luafiles})
 endforeach(TMP_PATH)
 
 foreach(file ${luafiles})
-  MESSAGE("AAAA ${LUA_PATH} ${PKGNAME} ${file}")
   get_filename_component(dir ${file} PATH)
   install(FILES ${file} DESTINATION ${LUA_PATH}/${PKGNAME}/${dir})
 endforeach()
